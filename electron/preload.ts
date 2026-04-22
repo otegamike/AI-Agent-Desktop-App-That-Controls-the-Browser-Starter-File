@@ -1,9 +1,6 @@
-import React from 'react'
+import { contextBridge, ipcRenderer } from 'electron';
 
-const preload = () => {
-  return (
-    <div>preload</div>
-  )
-}
-
-export default preload
+contextBridge.exposeInMainWorld('electronAPI', {
+  getVersion: () => ipcRenderer.invoke('get-version'),
+  platform: process.platform,
+});

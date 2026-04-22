@@ -2,12 +2,12 @@
   "name": "ai-desktop-agent",
   "version": "1.0.0",
   "description": "AI-powered desktop browser automation agent",
-  "main": "dist/electron/main.js",
+  "main": "ui/dist-electron/main.js",
   "homepage": "./",
   "author": "AI Agent",
   "license": "MIT",
   "scripts": {
-    "dev": "concurrently \"npm run dev:ui\" \"npm run dev:electron\"",
+    "dev": "vite",
     "dev:ui": "vite --port 3000",
     "dev:electron": "wait-on http://localhost:3000 && tsc -p tsconfig.electron.json && electron .",
     "build": "npm run build:ui && npm run build:electron",
@@ -45,6 +45,8 @@
     "react-dom": "^18.3.1",
     "typescript": "^5.6.3",
     "vite": "^5.4.11",
+    "vite-plugin-electron": "^0.29.1",
+    "vite-plugin-electron-renderer": "^0.14.6",
     "wait-on": "^8.0.1"
   },
   "build": {
